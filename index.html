@@ -1,0 +1,121 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="stylesheets/index.css" type="text/css" />
+	<script src="js/vendor/jquery-2.1.1.min.js"></script>
+	<script src="js/foundation/foundation.js"></script>
+	<script src="js/foundation/foundation.offcanvas.js"></script>
+	<script type="text/javascript" src="//is.byu.edu/site/resources/lead_submit.js"></script>
+	<script type="text/javascript">
+		var debug = false;
+		attachForm("#contactForm",".clickhere", function( data, textStatus, jqXHR ){
+			if(debug){console.log("ajax connection done.")};
+			//	This is an example of a simple thing you could use to create a new element after your form. Placing a "placeholder" element provides you a natural way to move/place the response data where you want it. For flexibility of design, the way you've done it here is actually better. Therefore this is commented out.
+			//$('<div id="form-response">' + data.message + '</div>').insertAfter($("#contactForm"));
+			$("#form-submit").html('<img src="img/green-check-mark.png" class="form-success" />Thank you for visiting our booth and entering the contest! We will contact the winners after the event.').addClass("form-success");
+			$("input[type='text'],input[type='tel'],input[type='email']").val("");
+		}, false, true, debug);	//	The last two parameters are optional and here are set to their default values. They govern an optional setting if you supply null for the handler function and rely on the default setting there, and the debug setting which needs to be true to include debug information in the console.
+	</script>
+	<script type="text/javascript">
+	(function($){	//	We've wrappered this javascript to keep it contained.
+		var debug = false;	//	development variable. optional and could be deleted here without consequence to execution.
+		$(document).foundation();	//	Initialize the foundation framework.
+			$(document).ready(function () {	//	Run the rest on document "ready" state change. (if document is somehow magically already in that state, this will fire immediately.)
+				//	Because this function is attached in multiple places, we define it as a variable so that it can exist once only in the code.
+			var closeMenuFunction = function() {
+				if($('.move-right').length > 0) {	//	This forces the function to operate as only a "close".
+							$('.off-canvas-wrap').foundation('offcanvas', 'toggle', 'move-right');
+							$('.maincontent').unbind("click.menumain");
+							if(debug) console.log("The menu should be closed/closing. The click handler has been removed from the .maincontent element.");
+				}
+			};
+					$('.left-small').bind("click.menu", function() {
+						if(debug) console.log("left-small clicked.");
+				//	Toggle the menu. This institutes the "current" state the user is requesting. (As in, it adds the class we're checking for later.)
+				$('.off-canvas-wrap').foundation('offcanvas', 'toggle', 'move-right');
+				//	Detect the existence of .move-right on the document. If it exists, then the menu is currently open.
+				if($('.move-right').length == 0) {
+					//	The menu has been closed!
+					if(debug) console.log("The menu has been closed!");
+							$('.maincontent').unbind("click.menumain");
+					} else {
+					//	The menu is open!
+					if(debug) console.log("The menu is open!");
+						$('.maincontent').bind("click.menumain", closeMenuFunction);
+				}
+					});
+			});
+	})(jQuery);
+	</script>
+</head>
+<body>
+	<!-- OFF CANVAS SECTIONS WRAPPING THE MAIN CONTENT -->
+	<div class="off-canvas-wrap">
+		<!-- INNER WRAP DIV -->
+		<div class="inner-wrap">
+			<!-- OFF CANVAS MENU BAR -->
+			<!-- NAV.TAB-BAR HIDE-FOR-LARGE-UP -->
+			<nav class="tab-bar hide-for-large-up">
+	 			<section class="left-small">
+					<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+				</section>
+				<section class="right tab-bar-section">
+					<a href="//is.byu.edu/site"><h1 class="mytitle"><img src="img/logoWhite1.png" class="logo" alt="BYUIS Logo"></h1></a>
+				</section>
+			</nav><!-- END OF: NAV.TAB-BAR HIDE-FOR-LARGE-UP -->
+			<!-- END OF: OFF CANVAS MENU BAR -->
+	 
+			<!-- OFF CANVAS MENU -->
+			<aside class="left-off-canvas-menu">
+				<ul class="off-canvas-list">
+					<li><a href="https://is.byu.edu/o2/index.cfm?event=public.login&redirect=/o2/index.cfm?event=person.currentRegistrations">Login</a></li>
+					<li><a href="http://is.byu.edu/site/courses/index.cfm">Course Catalog</a></li>
+					<li><a href="http://is.byu.edu/site/courses/order.cfm">Request Catalog</a></li>
+					<!--	<li><a href="http://is.byu.edu/site/support/studentsprogress.cfm">Check Student Progress</a></li> -->
+					<li><a href="http://is.byu.edu/site/financial/rewards.cfm">Rewards Program</a></li>
+					<li><a href="http://is.byu.edu/site/programs/purchase/index.cfm">Purchase Orders</a></li>
+					<li><a href="http://is.byu.edu/site/contactus/counselor_support.cfm">Contact State Representative</a></li>
+				</ul>
+			</aside>
+			<!-- END OF: OFF CANVAS MENU -->
+				<!-- STRIPE FOUR -->
+				<div class="stripe four">
+					<!-- TILE CONTAINER -->
+					<div class="tileContainer">
+						<!-- CONTACT FORM -->
+						<h2>Win a Kindle!</h2>
+						<form name="topRow" id="contactForm">
+							<div class="contactQuarter">
+								<h4>Name:</h4>
+								<input class="contactAreaQuarter" type="text" placeholder="Kyle Jones" name="identity" id="name" required >
+							</div>
+									 
+							<div class="contactQuarter">
+								<h4>Phone:</h4>
+								<input class="contactAreaQuarter" type="tel" placeholder="(222) 222-2222" name="phone" id="phone">
+							</div>
+									 
+							<div class="contactQuarter email">
+								<h4>Email:</h4>
+								<input class="contactAreaQuarter" type="email" placeholder="kyle.jones@example.com" name="email" id="email" required >
+							</div>
+							<div class="button1 clickhere">
+								SUBMIT
+							</div>
+							<div id="form-submit"><!-- This is where the response from the form submission code will be placed after they submit. --></div>
+							<input type="hidden" id="form-id" name="form" value="Kindle Contest 2">
+							<input type="hidden" id="send_email_to_marketing-id" name="send-email-to-marketing" value="false">
+						</form>
+						<!-- END OF: CONTACT FORM -->
+					</div>
+					<!-- END OF: TILE CONTAINER -->
+				</div>
+				<!-- END OF: STRIPE FOUR -->
+			</div>
+			<!-- END OF: MAIN CONTENT DIV -->
+		</div>
+		<!-- END OF: INNER WRAP DIV -->
+	</div>
+	<!-- END OF: OFF CANVAS SECTIONS WRAPPING THE MAIN CONTENT -->
+</body>
+</html>

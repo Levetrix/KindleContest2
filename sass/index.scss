@@ -1,0 +1,657 @@
+/*@import "compass/css3";*/
+
+
+
+@import "foundation/settings";
+@import "foundation/components/offcanvas";
+
+$medium-gutter: 32.24px;
+$small-gutter: 12.32px;
+$quarter-box: 221px;
+$half-box: 474.24;
+$mygree: rgb(116,201,114);
+$mygreen: #008cba;
+$myblue: #66B9E3;
+
+
+@font-face {
+    font-family: "OpenSansCn";
+    src: url(../fonts/OpenSans-CondLight.ttf);
+}
+
+@font-face {
+    font-family: "OpenSans";
+    src: url(../fonts/opensans-light-webfont.woff);
+}
+
+@font-face {
+    font-family: "Serveroff";
+    src: url(../fonts/Web_Serveroff.otf);
+}
+
+body {
+	padding:0;
+	margin:0;
+	color:rgb(70,70,70);
+	font-family:"OpenSans";
+	line-height:1.5em;
+}
+
+/*.menu-sidebar {
+  @include display-box;
+  @include box-orient(horizontal);
+  @include box-align(stretch);
+  @include box-direction(reverse);
+  height: 200px;
+  width: 100%;
+  .content, .sidebar {
+    padding: 20px;
+  }
+  .content {
+    @include box-flex(4);
+    background-color: #c5c1b4;
+  }
+  .sidebar {
+    @include box-flex(1);
+    background-color: #375f99;
+    margin-right: 1px;
+  }
+}*/
+
+.myTitle {
+	padding-left:.5em;
+	padding-top:4px;
+	padding-right:1em;
+}
+
+.logo {
+	max-height:2.9em;
+}
+
+.stripe {
+	position:relative;
+	padding: 3em .769em;
+}
+
+.one {
+	background: url("../img/scientist.jpg");
+	background-position:85% 0px;
+	min-height:150px;
+	background-size:cover;
+	background-repeat:no-repeat;
+}
+ 
+.two {
+	min-height:450px;
+    padding-bottom:1em;
+}
+
+.three {
+    text-align:center;
+    padding-top: 1.5em;
+    padding-bottom:1.5em;
+}
+
+.four {
+}
+
+.headtext{
+	text-align:right;
+	margin-right: $medium-gutter;
+	margin-top:-2em;
+}
+
+.test {
+	display:block;
+    text-align:right;
+}
+
+
+.headh1 {
+    font-size:1.9em;
+    font-family: "OpenSans";
+    text-align:left;
+    min-width:300px;
+    max-width:301px;
+    margin-left:calc(50% - 108px);
+    margin-right:0px;
+    padding-right:0;
+    padding-left:0;
+    font-weight:200;
+    }
+    .headh2{
+    font-size:1.2em;
+    font-family: "OpenSans";
+    text-align:left;
+    min-width:300px;
+    max-width:301px;
+    margin-left:calc(50% - 108px);
+    margin-right:0px;
+    padding-right:0;
+    padding-left:0;
+    font-weight:200;
+    }
+
+.mainh2 {
+    font-size:1.4em;
+    display:block;
+    orphans:3;
+}
+
+.twoh2 {
+}
+
+.circleImg {
+	display:none;
+	position:absolute;
+	top:10em;
+	right:7em;
+	height:10em;
+	width:10em;
+	background-color:#000;
+}
+
+.list {
+	margin-left:0;
+}
+
+.list li {
+	display:list-item;
+	padding:0;
+	line-height:1.4em;
+	font-family: "OpenSans";
+	padding-bottom:$medium-gutter;
+	margin-left:-2.4em;
+	list-style: none;
+	padding-left:2.5em;
+	
+}
+
+.list li:before {
+ content: "\003E \020";
+ font-family:"consolas";
+ font-weight:200;
+ font-size: .8em;
+ padding-top:0em;
+ margin-left:-.17em;
+ width: 0.8em;
+ float:left;
+ margin-bottom:.5em;
+}
+
+.list {
+	border-top: $mygreen solid 1px;
+	display:inline-block;
+	text-align:left;
+	margin-top:0;
+	padding-top:15px;
+	list-style-type:circle;
+	-webkit-margin-before: 0em;
+    -webkit-margin-after: 0em; 
+    -webkit-margin-start: 0px;
+    margin-right:28px;
+    max-width:221px;
+    overflow:visible;
+}
+
+.listHidden {
+	display:none;
+	margin-right:0;
+}
+
+.tileContainer {
+	display:block;
+	margin:0 auto;
+	text-align:center;
+}
+
+.floatTitle {
+	display:block;
+	width:13.8em;
+	margin-top:.769em;
+	margin-left:calc(50% - 126px);
+	border-top: solid rgba(225,225,225,0) 1px;
+    margin-right:.769em;
+    
+}
+
+
+
+.threeh2 {
+	font-family:"OpenSans";
+    font-weight:200;
+    font-size:1.4em;
+    text-align:left;
+    display:block;
+    color:rgb(100,100,100);
+    margin-top:-1px;
+    padding-top:7px;
+    padding-bottom:.769em;
+    margin-bottom:0em;
+}
+
+
+.tile {
+	display:inline-block;
+	position:relative;
+	width:13.8em;
+	min-height:200px;
+	margin-top:.769em;
+	margin-right:2.01em;
+    border-top:1px solid rgb(168,168,168);
+    padding-top: .769em;
+    overflow:auto;
+}
+
+.listContainer {
+    padding:0;
+    max-width:759.48px;
+    text-align:left;
+    margin-top:$small-gutter;
+    overflow:visible;
+    border-top:none;
+    min-height:265px;
+}
+
+.tileInvis1 {
+    display:none;
+}
+
+.tileInvis {
+    display:none;
+}
+
+
+h3 {
+	display:block;
+	min-height:3.5em;
+	font-size:1.05em;
+	margin:0;
+	font-weight:400;
+	font-family:"OpenSans";
+	text-align:left;
+		
+}
+
+
+p {
+	text-align:left;	
+    font-family:"OpenSans";
+    font-size:13px;
+    line-height:1.5em;
+    margin: 1em 0;
+    color: rgb(90,90,90);
+    margin:.5em 0;
+}
+
+.tileText {
+	text-align:left;
+}
+
+.floatInfo {
+	display:none;
+	float:right;
+	margin-right: $medium-gutter;
+	width:$quarter-box;
+	min-height:12.6em;
+	margin-top:12.32px;
+	padding:0;
+	text-align:left
+}
+
+.infoText {
+	font-family:"OpenSans";
+	font-size:1.05em;
+	line-height:1.4em;
+}
+
+.mailLink {
+	color: $mygreen;
+	text-decoration:underline;
+}
+
+.contactTitle {
+	border-bottom:1px solid rgb(168,168,168);
+	padding-bottom:31px;
+}
+
+.contactInfoTitle {
+	color: $mygreen;
+}
+
+#contactForm {
+    margin-bottom:16px;
+    }
+
+.contactQuarter {
+    display:inline-block;
+    margin:0;
+    margin-right: $medium-gutter;
+    margin-top: $small-gutter;
+}
+
+.contactHalf {
+	display: inline-block;
+	margin: 0;
+	margin-right: 32.24px;
+    margin-top: $small-gutter;
+}
+
+input {
+    font-family:"OpenSans";
+    border:rgb(168,168,168) 1px solid;
+    padding-left:.5em;
+}
+
+h4 {
+	display: block;
+	font-size: 1.05em;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-weight: 400;
+	font-family: "OpenSans";
+	text-align: left;
+	}
+	
+textarea {
+	margin:0;
+	font-family:"OpenSans";
+    border:rgb(168,168,168) 1px solid;
+    padding-left:.5em;
+}
+
+input:focus {
+	border: 1px solid $mygreen;
+}
+
+textarea:focus {
+    border: 1px solid $mygreen;
+}
+	
+.contactAreaQuarter {
+	box-sizing:border-box;
+	width: 219px;
+	height: $medium-gutter;
+}
+
+
+#message {
+	width: 221px;
+	min-height: 3.5em;
+}
+
+
+.displayToggle {
+	display:none;
+}
+
+.button1 {
+	float:left;
+    border: 1px solid $mygreen;
+    color:$mygreen;
+	height:32.24px;
+	width:110px;
+	font-family:"OpenSans";
+	margin-left:calc(50% - 127px);
+	line-height:2em;
+	margin-right:750px;
+	margin-top:1em;
+	margin-bottom:2em;
+	text-decoration:none;
+}
+
+.button1:hover {
+    cursor:pointer;
+}
+
+.firstTile {
+	border-color: $mygreen;
+}
+
+.firstList {
+	border-color:$mygreen;
+}
+
+img.form-success {
+max-height: 1.5rem;
+float: left;
+}
+div.form-success {
+text-align: left;
+line-height: 1rem;
+margin: 1rem;
+}
+
+.four h2 {
+	font-family: "OpenSans";
+}
+
+/*--------------------------------
+--------------------------------*/
+@media (min-width: 0px) and (max-width:534px) {
+	.test{
+	margin-top:-5em;
+	}
+	
+    .headtext {
+    display:none;
+    }
+
+}
+
+@media (min-width: 535px) {
+	
+	
+    .one {
+    min-height:300px;
+    background-position:60% 0;
+    }
+    
+    .headh1 {
+    text-align:left;
+    min-width:300px;
+    max-width:400px;
+    margin-left:calc(50% - 8em);
+    margin-right:0px;
+    padding-right:0;
+    padding-left:0;
+    }
+    .headh2{
+    text-align:left;
+    min-width:300px;
+    max-width:301px;
+    margin-left:calc(50% - 10.85em);
+    margin-right:0px;
+    padding-right:0;
+    padding-left:0;
+    }
+}
+
+@media (min-width: 535px) {  
+	.secondTile {
+    border-color: $mygreen;
+    }
+    
+	.one {
+	min-height:300px;
+	}
+	
+	.headh1 {
+	text-align:left;
+	min-width:300px;
+	max-width:350px;
+    margin-left:calc(50% - 8em);
+    margin-right:0px;
+    padding-right:0;
+    padding-left:0;
+	}
+	.headh2{
+    text-align:left;
+    min-width:300px;
+    max-width:301px;
+    margin-left:calc(50% - 12.45em);
+    margin-right:0px;
+    padding-right:0;
+    padding-left:0;
+    }
+	.two {
+	min-height:0px;
+	}
+	
+	.list .liToggle {
+    display:none;
+    }
+    
+    .list {
+	
+	}
+	
+    .listHidden {
+    display:inline-block;
+    }
+    
+    .listContainer {
+    min-width:480px;
+    }
+    
+    .floatTitle {
+    margin-left:calc(50% - 15.85em);
+    }
+    
+    .button1 {
+    margin-left:calc(50% - 15.85em);
+    margin-top:22px;
+    }
+    
+    .tileInvis1 {
+    display:inline-block;
+    }
+    
+    .email {
+    	margin-right:289px;
+    }
+    
+    #message {
+    width: $half-box;
+    min-height:5.15em;
+    }
+}
+
+@media (min-width: 784px) {
+	.thirdTile {
+	border-color: $mygreen;
+	}
+    
+    .email {
+    	margin-right:0px;
+    }
+	
+	.headtext {
+	}
+	
+	.firstList {
+	border-color: rgb(168,168,168);
+	}
+	
+	.one {
+    min-height:450px;
+    background-size:cover;
+    background-repeat:no-repeat;
+    }
+    
+    .headh1, .headh2 {
+    margin-left:calc(50% - 11.9em);
+    max-width:850px;
+ 
+    }
+    
+    .headh2 {
+    margin-left:calc(50% - 15.42em);
+    }
+	
+	.two {
+	}
+	
+    .threeh2list {
+    text-align:left;
+    border-top: 1px solid $mygreen;
+    }
+    
+    .listTitle {
+    float:left;
+    margin-left:0px;
+    margin-bottom:100px;
+    }
+    
+   
+    
+	.listContainer{
+	min-width:727.32px;
+	min-height:265px;
+	padding:0;
+	}
+	
+	ul .displayToggle {
+	display:list-item;
+	}
+
+	
+	.list {
+	
+	}
+	
+	.listContainer {
+	
+    }
+	
+    .tile {
+    margin-right:2.01em;
+    display:inline-block;
+    }
+    
+    .tileInvis {
+    display:inline-block;
+    }
+
+    .floatTitle {
+    margin-left:calc(50% - 23.74em);
+    }
+    
+    .button1 {
+    margin-left:calc(325px);
+    margin-top:34px;
+    }
+
+    .floatInfo {
+    display:inline-block;
+    }
+    
+    .info {
+    display:none;
+    }
+    
+    .tileContainer {
+    max-width:763px;
+    }
+    
+     .listTileContainer {
+    max-width:250px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
